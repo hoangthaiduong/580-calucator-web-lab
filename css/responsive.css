@@ -1,0 +1,33 @@
+@media (max-width:700px){
+  .topbar{height:42px;flex-basis:42px;padding:0 8px}.brand-logo{width:27px;height:27px}.brand-copy strong{font-size:10px}.brand-copy small{display:none}.top-btn{font-size:10px;padding:0 6px}.icon-btn{width:29px;height:30px}.stage{padding:3px}
+  .calculator{width:min(100%,440px);height:calc(100dvh - 46px);max-height:calc(100dvh - 46px);border-radius:14px;padding:7px}
+  .calculator-brandplate{flex-basis:28px;padding-inline:4px}.plate-name{font-size:10px}.plate-model,.plate-right{font-size:6px}
+  .display-frame{flex-basis:clamp(90px,17dvh,122px);padding:6px 8px}.display-expression{font-size:14px}.display-result{flex-basis:37px;height:37px;font-size:30px}
+  .upper-controls{grid-template-columns:1fr 94px;gap:6px;flex-basis:40px}.hardware-key{height:30px}.hardware-key b{font-size:7px}.hardware-key .sub-label{font-size:5px}.nav-pad{height:40px}.nav-up,.nav-down,.nav-center{left:33px}.nav-left{left:2px}.nav-right{right:2px}.nav-up,.nav-down,.nav-left,.nav-right,.nav-center{width:28px;height:15px}.nav-center{font-size:4px;top:12px}.nav-up{top:0}.nav-down{bottom:0}.nav-left,.nav-right{top:12px}
+  .function-grid{gap:4px;padding-top:5px;padding-bottom:4px}.key .main{font-size:clamp(8px,2.6vw,12px)}.key .sub{font-size:5px;top:2px;left:3px}.key.operator{font-size:15px}.key.number{font-size:13px}.quick-grid{gap:4px;flex-basis:29px}.quick-grid .key{font-size:6px}
+}
+@media (max-width:420px){
+  .topbar{height:38px;flex-basis:38px}.brand-logo{width:24px;height:24px}.brand-copy strong{font-size:9px}.top-btn{display:none}.top-actions{gap:2px}.stage{padding:2px}.calculator{height:calc(100dvh - 41px);max-height:calc(100dvh - 41px);padding:5px;border-radius:12px}.calculator-brandplate{flex-basis:24px}.plate-name{font-size:9px}.plate-model,.plate-right{display:none}.display-frame{flex-basis:clamp(78px,16dvh,104px);border-radius:6px;padding:5px 7px}.display-status{font-size:6px;gap:5px}.display-expression{font-size:12px}.display-result{flex-basis:32px;height:32px;font-size:27px}.upper-controls{grid-template-columns:1fr 84px;gap:4px;flex-basis:35px}.soft-keys{gap:3px}.hardware-key{height:27px;border-radius:5px}.hardware-key b{font-size:6px}.hardware-key .sub-label{font-size:4px}.nav-pad{height:35px}.nav-up,.nav-down,.nav-left,.nav-right,.nav-center{width:25px;height:13px}.nav-up,.nav-down,.nav-center{left:29px}.nav-left{left:1px}.nav-right{right:1px}.nav-left,.nav-right,.nav-center{top:11px}.nav-up{top:0}.nav-down{bottom:0}.nav-center{font-size:3px}
+  .function-grid{gap:3px;padding-top:4px;padding-bottom:3px}.key{border-radius:5px}.key .main{font-size:8px}.key .sub{font-size:4px;left:2px}.key.operator{font-size:13px}.key.number{font-size:12px}.quick-grid{gap:3px;flex-basis:25px}.quick-grid .key{font-size:5px}
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important}}
+
+@media (max-width:700px){
+  .stage{padding:3px 3px 22px}
+  .calculator{width:min(100%,448px);height:calc(100dvh - 66px);max-height:calc(100dvh - 66px);padding:7px;border-radius:15px}
+  .calculator-brandplate{flex-basis:25px}.plate-name{font-size:9px}.plate-model,.plate-right{font-size:5px}
+  .display-frame{flex-basis:clamp(86px,16dvh,116px)}
+  .upper-controls{grid-template-columns:1fr 90px;gap:5px;flex-basis:39px}.hardware-key{height:29px}.hardware-key b{font-size:6px}.hardware-key .sub-label{font-size:4px}
+  .nav-pad{height:39px}.nav-up,.nav-down,.nav-left,.nav-right,.nav-center{width:28px;height:15px}.nav-up,.nav-down,.nav-center{left:32px}.nav-left{left:1px}.nav-right{right:1px}.nav-center{top:12px;font-size:4px}.nav-up{top:0}.nav-down{bottom:0}.nav-left,.nav-right{top:12px}
+  .function-grid{gap:4px;padding-top:5px;padding-bottom:3px}.quick-grid{flex-basis:27px}
+  .copyright{left:7px;bottom:4px;font-size:8px}.copyright span{font-size:7px}
+}
+@media (max-width:420px){
+  .topbar{height:36px;flex-basis:36px}.brand-logo{width:23px;height:23px}.brand-copy strong{font-size:9px}.top-actions{gap:2px}.top-btn{display:none}.icon-btn{width:28px;height:29px}
+  .calculator{height:calc(100dvh - 58px);max-height:calc(100dvh - 58px);padding:5px;border-radius:12px}.calculator-brandplate{flex-basis:22px}.plate-name{font-size:8px}.plate-model,.plate-right{display:none}
+  .display-frame{flex-basis:clamp(74px,15dvh,98px);padding:5px 7px}.display-status{font-size:5px;gap:4px}.display-expression{font-size:11px}.display-result{height:30px;flex-basis:30px;font-size:25px}
+  .upper-controls{grid-template-columns:1fr 80px;gap:3px;flex-basis:33px}.soft-keys{gap:2px}.hardware-key{height:25px;border-radius:5px}.hardware-key b{font-size:5px}.hardware-key .sub-label{font-size:3px}.nav-pad{height:33px}.nav-up,.nav-down,.nav-left,.nav-right,.nav-center{width:24px;height:12px}.nav-up,.nav-down,.nav-center{left:28px}.nav-left{left:1px}.nav-right{right:1px}.nav-center{top:10px;font-size:3px}.nav-left,.nav-right{top:10px}
+  .function-grid{gap:3px;padding-top:4px;padding-bottom:3px}.key{border-radius:5px}.key .main{font-size:7.5px}.key .sub{font-size:3.5px}.key.operator{font-size:12px}.key.number{font-size:11px}.quick-grid{gap:3px;flex-basis:24px}.quick-grid .key{font-size:4.5px}
+  .copyright{font-size:7px;line-height:1.1}.copyright span{font-size:6px}
+}
+@media (max-width:560px){.tool-list.compact{grid-template-columns:repeat(2,minmax(0,1fr))}.tool-list{grid-template-columns:repeat(2,minmax(0,1fr))}}

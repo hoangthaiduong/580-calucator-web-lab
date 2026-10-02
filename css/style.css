@@ -1,0 +1,81 @@
+:root{
+  --page:#eef1f4;--face:#d8dcdf;--face-dark:#bcc2c6;--face-edge:#9ea6ab;--plate:#c7ccd0;
+  --screen:#d7dfc9;--screen-border:#8d968a;--screen-text:#243029;
+  --key:#f8f8f6;--key-top:#ffffff;--key-edge:#c8c9c6;--key-shadow:#8f9390;
+  --fn:#e5e7e8;--fn-top:#f5f6f6;--blue:#2f63b7;--blue-deep:#244f96;--amber:#c48a13;--green:#247e5d;
+  --text:#13171a;--muted:#5d6469;--red:#b7342c;--border:#adb4b8;
+  --panel:#ffffff;--panel-border:#d7dce0;--backdrop:rgba(10,15,18,.45);
+  --radius:12px;--speed:180ms;
+}
+[data-theme="dark"]{
+  --page:#0d1114;--face:#20262a;--face-dark:#171c1f;--face-edge:#0c0f11;--plate:#2a3237;
+  --screen:#152019;--screen-border:#415347;--screen-text:#d4e3d1;
+  --key:#2c3338;--key-top:#3a4349;--key-edge:#151a1d;--key-shadow:#0b0e10;
+  --fn:#343d42;--fn-top:#414b51;--text:#f2f5f6;--muted:#a3adb2;--border:#4b555a;
+  --panel:#1b2226;--panel-border:#3b454a;--backdrop:rgba(0,0,0,.58);
+}
+*{box-sizing:border-box}
+html,body{margin:0;width:100%;height:100%;overflow:hidden}
+body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--page);color:var(--text)}
+button{font:inherit;color:inherit}
+button:focus-visible{outline:2px solid #4f8cff;outline-offset:2px}
+.app{height:100dvh;min-height:0;display:flex;flex-direction:column}
+.topbar{height:48px;flex:0 0 48px;display:flex;align-items:center;justify-content:space-between;padding:0 14px;border-bottom:1px solid var(--panel-border);background:color-mix(in srgb,var(--page) 92%,white);}
+.brand{display:flex;align-items:center;gap:9px;text-decoration:none;color:inherit;min-width:0}
+.brand-logo{width:30px;height:30px;display:block}
+.brand-copy{display:flex;flex-direction:column;line-height:1.05;min-width:0}
+.brand-copy strong{font-size:12px;letter-spacing:.05em}
+.brand-copy small{font-size:9px;color:var(--muted);margin-top:2px;white-space:nowrap}
+.top-actions{display:flex;align-items:center;gap:4px}
+.top-btn,.icon-btn{border:1px solid transparent;background:transparent;border-radius:7px;height:32px;padding:0 8px;cursor:pointer;font-size:11px}
+.top-btn:hover,.icon-btn:hover{background:var(--panel);border-color:var(--panel-border)}
+.icon-btn{width:32px;padding:0;display:grid;place-items:center;font-size:15px}
+.stage{flex:1;min-height:0;display:grid;place-items:center;padding:5px 10px;overflow:hidden}
+
+/* Smart workspace overlays */
+#overlayRoot{position:fixed;inset:0;z-index:50;pointer-events:none}
+.modal-overlay,.drawer-overlay{position:absolute;inset:0;background:var(--backdrop);display:flex;align-items:center;justify-content:center;padding:14px;pointer-events:auto}
+.drawer-overlay{justify-content:flex-end;padding:0}
+.panel,.drawer-panel{width:min(620px,100%);max-height:min(86dvh,720px);overflow:auto;background:var(--panel);border:1px solid var(--panel-border);border-radius:14px;box-shadow:0 24px 60px rgba(0,0,0,.22);padding:16px;animation:panelIn var(--speed) ease-out}
+.drawer-panel{height:100%;max-height:none;width:min(430px,100%);border-radius:14px 0 0 14px;border-right:0;animation:drawerIn var(--speed) ease-out}
+.panel-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:13px}.panel-head h2{margin:0;font-size:17px}.panel-close{width:32px;height:32px;border:1px solid var(--panel-border);background:var(--page);border-radius:7px;cursor:pointer;font-size:19px;line-height:1}
+.panel-actions{display:flex;gap:8px;margin-bottom:10px}.soft-btn{border:1px solid var(--panel-border);background:var(--panel);border-radius:8px;padding:9px 11px;cursor:pointer}.soft-btn.primary{background:#2f63b7;color:#fff;border-color:#2f63b7}
+.tool-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.tool-item{border:1px solid var(--panel-border);background:var(--page);border-radius:9px;padding:11px;text-align:left;cursor:pointer;display:flex;flex-direction:column;gap:3px}.tool-item:hover{border-color:#5a84c7}.tool-item b{font-size:12px}.tool-item small{font-size:10px;color:var(--muted)}
+.history-item{width:100%;text-align:left;border:1px solid var(--panel-border);background:var(--page);border-radius:9px;padding:10px;margin-bottom:7px;display:flex;flex-direction:column;gap:3px;cursor:pointer}.history-item span{font-size:11px;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.history-item strong{font-size:18px}.history-item small{font-size:9px;color:var(--muted)}
+.empty{padding:28px;text-align:center;color:var(--muted);font-size:12px}
+.form{display:grid;gap:9px}.form input,.form textarea,.form select,.settings select,.command input{width:100%;border:1px solid var(--panel-border);background:var(--page);color:var(--text);border-radius:8px;padding:10px;outline:none}.form textarea{resize:vertical}.form input:focus,.form textarea:focus,.form select:focus,.settings select:focus,.command input:focus{border-color:#5a84c7;box-shadow:0 0 0 3px rgba(47,99,183,.12)}.tool-result{white-space:pre-wrap;min-height:40px;border:1px solid var(--panel-border);background:var(--screen);color:var(--screen-text);border-radius:8px;padding:10px;font:13px/1.45 "Courier New",monospace;overflow:auto}.mini-fields{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}.hint,.about{color:var(--muted);font-size:10px;line-height:1.45}.settings{display:grid;gap:10px}.settings label{display:grid;gap:5px;font-size:11px;font-weight:700}.command{display:grid;gap:9px}.command-item{width:100%;text-align:left;border:1px solid var(--panel-border);background:var(--page);border-radius:8px;padding:9px;display:flex;flex-direction:column;gap:2px;cursor:pointer;margin-bottom:6px}.command-item b{font-size:12px}.command-item small{font-size:10px;color:var(--muted)}.step{border:1px solid var(--panel-border);background:var(--page);border-radius:8px;padding:10px;margin-bottom:7px;font-family:"Courier New",monospace;font-size:13px}
+.focus-mode .topbar,.focus-mode .calculator-brandplate{opacity:.3}.focus-mode .stage{padding-top:2px}.focus-mode .calculator{width:min(100%,500px)}
+@keyframes panelIn{from{opacity:0;transform:translateY(5px) scale(.99)}to{opacity:1;transform:none}}@keyframes drawerIn{from{opacity:.7;transform:translateX(16px)}to{opacity:1;transform:none}}
+@media (max-width:560px){.tool-list{grid-template-columns:1fr}.panel,.drawer-panel{border-radius:11px;padding:12px}.drawer-panel{border-radius:12px 0 0 12px}.mini-fields{grid-template-columns:1fr 1fr 1fr}}
+
+/* 580 Web Lab — premium calculator shell + utility rail */
+body{background:
+  radial-gradient(circle at 50% 18%,rgba(255,255,255,.75),transparent 36%),
+  linear-gradient(180deg,#eef2f4 0%,#e5e9ec 100%);
+}
+.app{position:relative;isolation:isolate}
+.app::before{content:"";position:fixed;inset:48px 0 0;z-index:-2;opacity:.32;pointer-events:none;background-image:linear-gradient(rgba(75,86,94,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(75,86,94,.055) 1px,transparent 1px);background-size:24px 24px;mask-image:linear-gradient(to bottom,black,transparent 90%)}
+.topbar{box-shadow:0 1px 0 rgba(255,255,255,.72),0 7px 20px rgba(42,50,55,.06);backdrop-filter:blur(8px)}
+.stage{padding:4px 14px 27px}
+.calculator-shell{display:flex;align-items:center;justify-content:center;gap:10px;max-width:590px;width:100%;min-height:0}
+.side-rail{width:68px;display:flex;flex-direction:column;gap:7px;align-self:center}
+.rail-btn{height:53px;border:1px solid #aeb5b9;border-radius:10px;background:linear-gradient(180deg,#fbfcfc,#d8dde0);box-shadow:0 2px 0 #8e9599,inset 0 1px rgba(255,255,255,.95);color:#30373b;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;cursor:pointer;transition:transform var(--speed),box-shadow var(--speed),filter var(--speed);font-size:7px;font-weight:900;letter-spacing:.08em}
+.rail-btn:hover{filter:brightness(1.02);box-shadow:0 3px 0 #8e9599,inset 0 1px rgba(255,255,255,.95),0 8px 18px rgba(42,50,55,.08)}
+.rail-btn:active{transform:translateY(1px);box-shadow:0 1px 0 #8e9599,inset 0 1px rgba(255,255,255,.9)}
+.rail-icon{font-size:16px;line-height:1;color:#245a96}
+.rail-btn:nth-child(1) .rail-icon{color:#2a6b9b}.rail-btn:nth-child(2) .rail-icon{color:#8b650f}.rail-btn:nth-child(3) .rail-icon{color:#3d6b58}.rail-btn:nth-child(4) .rail-icon{color:#6a57a7}
+.copyright{position:fixed;left:11px;bottom:7px;z-index:5;color:#5f686d;font-size:11px;line-height:1.18;text-transform:lowercase;letter-spacing:.06em;font-weight:900;pointer-events:none;text-shadow:0 1px rgba(255,255,255,.6)}
+.copyright span{font-weight:700;color:#7b8489;font-size:9px;letter-spacing:.04em}
+[data-theme="dark"] body{background:linear-gradient(180deg,#0d1215,#11181c)}
+[data-theme="dark"] .app::before{opacity:.16;background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px)}
+[data-theme="dark"] .rail-btn{border-color:#11171a;background:linear-gradient(180deg,#3a4247,#252c30);box-shadow:0 2px 0 #0d1113,inset 0 1px rgba(255,255,255,.08);color:#eef2f4}
+.tool-section{padding:2px 0 5px}.tool-section+.tool-section{margin-top:7px;padding-top:10px;border-top:1px solid var(--panel-border)}
+.tool-section-title{margin:0 0 7px;color:var(--muted);font-size:9px;font-weight:900;letter-spacing:.1em;text-transform:uppercase}
+.tool-list.compact{grid-template-columns:repeat(5,minmax(0,1fr));gap:6px}
+.tool-list.compact .tool-item{padding:9px 7px;min-height:56px}
+.tool-list.compact .tool-item b{font-size:11px}.tool-list.compact .tool-item small{font-size:8px}
+@media (max-width:780px){.side-rail{display:none}.calculator-shell{max-width:100%}.stage{padding-inline:6px}}
+.offline-chip{height:24px;padding:0 8px;border:1px solid #cfd5d8;border-radius:999px;background:rgba(255,255,255,.7);display:inline-flex;align-items:center;gap:6px;color:#697278;font-size:7px;font-weight:900;letter-spacing:.08em;box-shadow:inset 0 1px rgba(255,255,255,.8)}
+.offline-chip i{width:6px;height:6px;border-radius:50%;background:#3d9a67;box-shadow:0 0 0 3px rgba(61,154,103,.12)}
+.focus-mode .side-rail{opacity:.35;pointer-events:none}
+[data-theme="dark"] .offline-chip{border-color:#3a454b;background:rgba(35,43,48,.82);color:#aeb7bc}.focus-mode .offline-chip{opacity:.35}

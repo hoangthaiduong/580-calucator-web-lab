@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#101214">
+  <meta name="description" content="580 Web Lab — calculator-style scientific calculator with a familiar key layout.">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <title>580 Web Lab — Modern Calculator. Familiar Experience.</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/calculator.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <div class="app" id="app">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="580 Web Lab home">
+        <img src="assets/logo.svg" alt="580 Web Lab" class="brand-logo">
+        <span class="brand-copy"><strong>580 WEB LAB</strong><small>Modern Calculator. Familiar Experience.</small></span>
+      </a>
+      <nav class="top-actions" aria-label="Application status">
+        <span class="offline-chip"><i></i> OFFLINE · LOCAL</span>
+        <button class="icon-btn" id="settingsBtn" aria-label="Settings">⚙</button>
+      </nav>
+    </header>
+
+    <main class="stage">
+      <div class="calculator-shell">
+      <section class="calculator" aria-label="580 Web Lab scientific calculator">
+        <div class="calculator-brandplate">
+          <div class="plate-left"><span class="plate-name">580 WEB LAB</span><span class="plate-model">SCI · EDUCATIONAL</span></div>
+          <div class="plate-right"><span>INDEPENDENT PROJECT</span></div>
+        </div>
+
+        <section class="display-frame" aria-live="polite">
+          <div class="display-status" id="statusBar">
+            <span data-status="shift">SHIFT</span><span data-status="alpha">ALPHA</span><span data-status="deg">DEG</span><span data-status="rad">RAD</span><span data-status="stat">STAT</span><span data-status="cmplx">CMPLX</span><span data-status="memory">M</span>
+          </div>
+          <div class="display-expression-wrap" id="exprViewport"><div class="display-expression" id="exprDisplay"></div></div>
+          <div class="display-result" id="resultDisplay">0</div>
+        </section>
+
+        <div class="key-zone">
+          <div class="upper-controls">
+            <div class="soft-keys">
+              <button class="hardware-key control amber" data-action="shift"><span class="sub-label">SHIFT</span><b>SHIFT</b></button>
+              <button class="hardware-key control green" data-action="alpha"><span class="sub-label">ALPHA</span><b>ALPHA</b></button>
+              <button class="hardware-key control" data-action="menu"><span class="sub-label">MENU</span><b>MENU</b></button>
+              <button class="hardware-key control" data-action="setup"><span class="sub-label">SETUP</span><b>SETUP</b></button>
+              <button class="hardware-key control power" data-action="ac"><span class="sub-label">ON</span><b>ON</b></button>
+            </div>
+            <div class="nav-pad" aria-label="Cursor controls">
+              <button class="nav-key nav-up" data-action="up" aria-label="Up">▲</button>
+              <button class="nav-key nav-left" data-action="left" aria-label="Left">◀</button>
+              <button class="nav-key nav-center" data-action="center" aria-label="Replay">REPLAY</button>
+              <button class="nav-key nav-right" data-action="right" aria-label="Right">▶</button>
+              <button class="nav-key nav-down" data-action="down" aria-label="Down">▼</button>
+            </div>
+          </div>
+
+          <div class="function-grid" id="keypad"></div>
+          <div class="quick-grid" id="quickGrid"></div>
+        </div>
+      </section>
+      <aside class="side-rail" aria-label="Quick application controls">
+        <button class="rail-btn" data-side-action="tools"><span class="rail-icon">⌘</span><span>TOOLS</span></button>
+        <button class="rail-btn" data-side-action="history"><span class="rail-icon">↺</span><span>HIST</span></button>
+        <button class="rail-btn" data-side-action="settings"><span class="rail-icon">⚙</span><span>SET</span></button>
+        <button class="rail-btn" data-side-action="focus"><span class="rail-icon">⛶</span><span>FOCUS</span></button>
+      </aside>
+      </div>
+    </main>
+    <div class="copyright" aria-label="Copyright">© 580 web lab<br><span>Hoang Thai Duong edition</span></div>
+  </div>
+
+  <div id="overlayRoot"></div>
+  <script src="lib/math.js"></script>
+  <script src="js/state.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/tokenizer.js"></script>
+  <script src="js/parser.js"></script>
+  <script src="js/evaluator.js"></script>
+  <script src="js/formatter.js"></script>
+  <script src="js/history.js"></script>
+  <script src="js/themes.js"></script>
+  <script src="js/calculator.js"></script>
+  <script src="js/modes/basic.js"></script>
+  <script src="js/modes/complex.js"></script>
+  <script src="js/modes/statistics.js"></script>
+  <script src="js/modes/table.js"></script>
+  <script src="js/modes/matrix.js"></script>
+  <script src="js/modes/equation.js"></script>
+  <script src="js/keyboard.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
